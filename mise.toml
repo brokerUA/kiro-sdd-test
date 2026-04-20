@@ -1,0 +1,39 @@
+[tools]
+node     = "25.9.0"
+pnpm     = "9"
+
+[tasks."api:install"]
+description = "Install Laravel API dependencies"
+run         = "docker compose exec php-fpm-laravel-api composer install --working-dir=api"
+
+[tasks."api:migrate"]
+description = "Run database migrations (requires Docker stack to be up)"
+run         = "docker compose exec php-fpm-laravel-api php artisan migrate"
+
+[tasks."api:test"]
+description = "Run all backend tests (unit + property + integration)"
+run         = "docker compose exec php-fpm-laravel-api php artisan test"
+
+[tasks."api:test:pbt"]
+description = "Run property-based tests only"
+run         = "docker compose exec php-fpm-laravel-api php artisan test --filter=Property"
+
+[tasks."frontend:install"]
+description = "Install Next.js frontend dependencies"
+run         = "pnpm install --dir frontend"
+
+[tasks."frontend:test"]
+description = "Run all frontend tests (unit + property)"
+run         = "pnpm --dir frontend test --run"
+
+[tasks."docker:up"]
+description = "Start the full Docker Compose stack"
+run         = "docker compose up -d"
+
+[tasks."docker:down"]
+description = "Stop and remove Docker Compose containers"
+run         = "docker compose down"
+
+[tasks."docker:build"]
+description = "Build all Docker images"
+run         = "docker compose build"
