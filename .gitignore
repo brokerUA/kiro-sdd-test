@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Laravel
+api/.env
+api/storage/logs/*.log
+api/storage/framework/cache/
+api/storage/framework/sessions/
+api/storage/framework/views/
+api/bootstrap/cache/*.php
+!api/bootstrap/cache/.gitkeep
+
+# Next.js
+frontend/.next/
+frontend/out/
+frontend/.env*.local
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+dist/
+build/
+
+# Test coverage
+coverage/
+.phpunit.result.cache
